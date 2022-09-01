@@ -1,0 +1,24 @@
+body {
+    font-family: Arial;
+    margin: 0;
+  }
+
+  h1{
+    color:#1abc9c;
+    font-weight: 50px;
+  }
+.header {
+    padding: 60px;
+    text-align: center;
+    background: #1abc9c;
+    color:yellowgreen;
+    font-size: 30px;
+  }
+  
+img{
+    width:1600px;
+}
+.content {
+    padding:20px;
+    background-color: greenyellow;
+}
