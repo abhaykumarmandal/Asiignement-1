@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content=
+        "width=device-width, initial-scale=1.0">
+    <title>Dice Game</title>
+</head>
+<style>
+    .container {
+        width: 70%;
+        margin: auto;
+        text-align: center;
+    }
+
+    .dice {
+        text-align: center;
+        display: inline-block;
+        margin: 10px;
+    }
+
+    body {
+        background-color: #042f4b;
+        margin: 0;
+    }
+
+    h1 {
+        margin: 30px;
+        font-family: "Lobster", cursive;
+        text-shadow: 5px 0 #232931;
+        font-size: 4.5rem;
+        color: #4ecca3;
+        text-align: center;
+    }
+
+    p {
+        font-size: 2rem;
+        color: #4ecca3;
+        font-family: "Indie Flower", cursive;
+    }
+
+    img {
+        width: 100%;
+    }
+
+    .bottom {
+        padding-top: 30px;
+    }
+
+    .butn {
+        background: #4ecca3;
+        font-family: "Indie Flower", cursive;
+        border-radius: 7px;
+        color: #ffff;
+        font-size: 30px;
+        padding: 16px 25px 16px 25px;
+        text-decoration: none;
+    }
+
+    .butn:hover {
+        background: #232931;
+        text-decoration: none;
+    }
+</style>
+<script>
+    var player1 = "Player 1";
+    var player2 = "Player 2";
+
+    function editNames() {
+        player1 = prompt("Change Player1 name");
+        player2 = prompt("Change player2 name");
+
+        document.querySelector("p.Player1").innerHTML = player1;
+        document.querySelector("p.Player2").innerHTML = player2;
+    }
+
+    function rollTheDice() {
+        setTimeout(function () {
+            var randomNumber1 = Math.floor(Math.random() * 6) + 1;
+            var randomNumber2 = Math.floor(Math.random() * 6) + 1;
+
+            document.querySelector(".img1").setAttribute("src",
+                "dice" + randomNumber1 + ".png");
+
+            document.querySelector(".img2").setAttribute("src",
+                "dice" + randomNumber2 + ".png");
+
+            if (randomNumber1 === randomNumber2) {
+                document.querySelector("h1").innerHTML = "Draw!";
+            }
+
+            else if (randomNumber1 < randomNumber2) {
+                document.querySelector("h1").innerHTML
+                                = (player2 + " WINS!");
+            }
+
+            else {
+                document.querySelector("h1").innerHTML
+                                = (player1 + " WINS!");
+            }
+        }, 2500);
+    }
+</script>
+<body>
+    <div class="container">
+        <h1>Let's Play</h1>
+
+        <div class="dice">
+            <p class="Player1">Player 1</p>
+            <img class="img1" src="data:image/jpeg;base64,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">
+        </div>
+
+        <div class="dice">
+            <p class="Player2">Player 2</p>
+            <img class="img2" src="data:image/jpeg;base64,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">
+        </div>
+    </div>
+
+    <div class="container bottom">
+        <button type="button" class="butn"
+            onClick="rollTheDice()">
+            Roll the Dice
+        </button>
+    </div>
+    <div class="container bottom">
+        <button type="button" class="butn" 
+            onClick="editNames()">
+            Edit Names
+        </button>
+    </div>
+</body>
+
+</html>
